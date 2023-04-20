@@ -10,7 +10,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_braintree/flutter_braintree.dart';
 import 'package:flutter_stripe/flutter_stripe.dart' as stripe1;
 import 'package:flutterwave_standard/flutterwave.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:foodie_customer/constants.dart';
 import 'package:foodie_customer/main.dart';
 import 'package:foodie_customer/model/CodModel.dart';
@@ -53,6 +53,8 @@ import '../../model/paytmSettingData.dart';
 import '../../services/paypalclientToken.dart';
 import '../placeOrderScreen/PlaceOrderScreen.dart';
 import '../wallet/MercadoPagoScreen.dart';
+//import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import "package:simple_icons/simple_icons.dart";
 
 class PaymentScreen extends StatefulWidget {
   final double total;
@@ -244,7 +246,8 @@ class PaymentScreenState extends State<PaymentScreen> {
                             },
                             value: wallet,
                             contentPadding: EdgeInsets.all(0),
-                            secondary: FaIcon(FontAwesomeIcons.wallet),
+                           // secondary: FaIcon(FontAwesomeIcons.wallet),
+                            secondary: Icon(Icons.wallet),
                             title: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -321,7 +324,8 @@ class PaymentScreenState extends State<PaymentScreen> {
                                 },
                                 value: codPay,
                                 contentPadding: EdgeInsets.all(0),
-                                secondary: FaIcon(FontAwesomeIcons.handHoldingDollar),
+                        //  secondary: FaIcon(FontAwesomeIcons.handHoldingDollar),
+                         secondary: Icon(SimpleIcons.cashapp),
                                 title: Text('Cash on Delivery'.tr()),
                               )
                             : Center();
@@ -330,8 +334,7 @@ class PaymentScreenState extends State<PaymentScreen> {
                     }),
               ],
             ),
-          ),
-          Visibility(
+          ), Visibility(
             visible: razorPayData!.isEnabled,
             child: Column(
               children: [
@@ -356,7 +359,8 @@ class PaymentScreenState extends State<PaymentScreen> {
                   },
                   value: razorPay,
                   contentPadding: EdgeInsets.all(0),
-                  secondary: FaIcon(FontAwesomeIcons.amazonPay),
+                  //secondary: FaIcon(FontAwesomeIcons.amazonPay),
+                  secondary: Icon(SimpleIcons.amazonpay),
                   title: Text('Razor Pay'.tr()),
                 ),
               ],
@@ -387,7 +391,8 @@ class PaymentScreenState extends State<PaymentScreen> {
                   },
                   value: stripe,
                   contentPadding: EdgeInsets.all(0),
-                  secondary: FaIcon(FontAwesomeIcons.stripe),
+                 // secondary: FaIcon(FontAwesomeIcons.stripe),
+                  secondary: Icon(SimpleIcons.stripe),
                   title: Text('Stripe'.tr()),
                 ),
               ],
@@ -418,7 +423,8 @@ class PaymentScreenState extends State<PaymentScreen> {
                   },
                   value: payTm,
                   contentPadding: EdgeInsets.all(0),
-                  secondary: FaIcon(FontAwesomeIcons.alipay),
+                 // secondary: FaIcon(FontAwesomeIcons.alipay),
+                  secondary: Icon(SimpleIcons.alipay),
                   title: Text('PayTm'.tr()),
                 ),
               ],
@@ -449,7 +455,8 @@ class PaymentScreenState extends State<PaymentScreen> {
                   },
                   value: paypal,
                   contentPadding: EdgeInsets.all(0),
-                  secondary: FaIcon(FontAwesomeIcons.paypal),
+                //  secondary: FaIcon(FontAwesomeIcons.paypal),
+                  secondary: Icon(SimpleIcons.paypal),
                   title: Text(' Paypal'.tr()),
                 ),
               ],
@@ -480,7 +487,8 @@ class PaymentScreenState extends State<PaymentScreen> {
                   },
                   value: pay,
                   contentPadding: EdgeInsets.all(0),
-                  secondary: FaIcon(FontAwesomeIcons.googlePay),
+                 // secondary: FaIcon(FontAwesomeIcons.googlePay),
+                  secondary: Icon(SimpleIcons.googlepay),
                   title: Text(' Pay'.tr()),
                 ),
               ],
@@ -581,7 +589,8 @@ class PaymentScreenState extends State<PaymentScreen> {
                   },
                   value: flutterWave,
                   contentPadding: EdgeInsets.all(0),
-                  secondary: FaIcon(FontAwesomeIcons.moneyBillWave),
+                 // secondary: FaIcon(FontAwesomeIcons.moneyBillWave),
+                 secondary: Icon(SimpleIcons.bitcoincash),
                   title: Text(' FlutterWave'.tr()),
                 ),
               ],

@@ -4,6 +4,7 @@ import 'package:foodie_customer/constants.dart';
 import 'package:foodie_customer/services/helper.dart';
 import 'package:foodie_customer/ui/container/ContainerScreen.dart';
 import 'package:foodie_customer/ui/login/LoginScreen.dart';
+import 'package:foodie_customer/ui/phoneAuth/PhoneNumberInputScreen.dart';
 import 'package:foodie_customer/ui/signUp/SignUpScreen.dart';
 
 class AuthScreen extends StatelessWidget {
@@ -94,7 +95,8 @@ class AuthScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
                   ).tr(),
                   onPressed: () {
-                    push(context, LoginScreen());
+                    // push(context, LoginScreen());
+                    push(context, PhoneNumberInputScreen(login: true));
                   },
                 ),
               ),
@@ -109,7 +111,8 @@ class AuthScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(COLOR_PRIMARY)),
                   ).tr(),
                   onPressed: () {
-                    push(context, SignUpScreen());
+                    // push(context, SignUpScreen());
+                    push(context, PhoneNumberInputScreen(login: false));
                   },
                   style: ButtonStyle(
                     padding: MaterialStateProperty.all<EdgeInsetsGeometry>(

@@ -145,9 +145,11 @@ class _CartScreenState extends State<CartScreen> {
     cartDatabase = Provider.of<CartDatabase>(context, listen: true);
     cartFuture = cartDatabase.allCartProducts;
     _fireStoreUtils.getTaxSetting().then((value) {
-      if (value != null && value.active!) {
-        taxModel = value;
-        setState(() {});
+      if (value != null &&  value.active! ) {
+
+          taxModel = value;
+          setState(() {});
+
       }
     });
 

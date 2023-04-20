@@ -174,39 +174,39 @@ class _LoginScreen extends State<LoginScreen> {
             ),
 
             /// facebook login button
-            Padding(
-              padding: const EdgeInsets.only(right: 40.0, left: 40.0, bottom: 20),
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(minWidth: double.infinity),
-                child: ElevatedButton.icon(
-                    label: Container(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          'facebookLogin',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.grey.shade200),
-                        ).tr()),
-                    icon: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
-                      child: Image.asset(
-                        'assets/images/facebook_logo.png',
-                        color: Colors.grey.shade200,
-                        height: 30,
-                        width: 30,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(FACEBOOK_BUTTON_COLOR),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25.0),
-                        side: BorderSide(
-                          color: Color(FACEBOOK_BUTTON_COLOR),
-                        ),
-                      ),
-                    ),
-                    onPressed: () async => loginWithFacebook()),
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.only(right: 40.0, left: 40.0, bottom: 20),
+            //   child: ConstrainedBox(
+            //     constraints: const BoxConstraints(minWidth: double.infinity),
+            //     child: ElevatedButton.icon(
+            //         label: Container(
+            //             alignment: Alignment.centerLeft,
+            //             child: Text(
+            //               'facebookLogin',
+            //               textAlign: TextAlign.center,
+            //               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.grey.shade200),
+            //             ).tr()),
+            //         icon: Padding(
+            //           padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+            //           child: Image.asset(
+            //             'assets/images/facebook_logo.png',
+            //             color: Colors.grey.shade200,
+            //             height: 30,
+            //             width: 30,
+            //           ),
+            //         ),
+            //         style: ElevatedButton.styleFrom(
+            //           backgroundColor: Color(FACEBOOK_BUTTON_COLOR),
+            //           shape: RoundedRectangleBorder(
+            //             borderRadius: BorderRadius.circular(25.0),
+            //             side: BorderSide(
+            //               color: Color(FACEBOOK_BUTTON_COLOR),
+            //             ),
+            //           ),
+            //         ),
+            //         onPressed: () async => loginWithFacebook()),
+            //   ),
+            // ),
             FutureBuilder<bool>(
               future: apple.TheAppleSignIn.isAvailable(),
               builder: (context, snapshot) {
@@ -304,31 +304,31 @@ class _LoginScreen extends State<LoginScreen> {
     super.dispose();
   }
 
-  loginWithFacebook() async {
-    try {
-      await showProgress(context, "loggingInPleaseWait".tr(), false);
-      dynamic result = await FireStoreUtils.loginWithFacebook();
-      await hideProgress();
-      if (result != null && result is User) {
-        MyAppState.currentUser = result;
-
-        if (MyAppState.currentUser!.active == true) {
-          pushAndRemoveUntil(context, ContainerScreen(user: result), false);
-        } else {
-          showAlertDialog(context, "accountDisabledContactAdmin".tr(), "", true);
-        }
-      } /*else if (result != null && result is String) {
-        showAlertDialog(context, 'Error'.tr(), result.tr(), true);
-      } else {
-        showAlertDialog(
-            context, 'Error', "notLoginFacebook".tr(), true);
-      }*/
-    } catch (e, s) {
-      await hideProgress();
-      print('_LoginScreen.loginWithFacebook $e $s');
-      showAlertDialog(context, 'error'.tr(), "notLoginFacebook".tr(), true);
-    }
-  }
+  // loginWithFacebook() async {
+  //   try {
+  //     await showProgress(context, "loggingInPleaseWait".tr(), false);
+  //     dynamic result = await FireStoreUtils.loginWithFacebook();
+  //     await hideProgress();
+  //     if (result != null && result is User) {
+  //       MyAppState.currentUser = result;
+  //
+  //       if (MyAppState.currentUser!.active == true) {
+  //         pushAndRemoveUntil(context, ContainerScreen(user: result), false);
+  //       } else {
+  //         showAlertDialog(context, "accountDisabledContactAdmin".tr(), "", true);
+  //       }
+  //     } /*else if (result != null && result is String) {
+  //       showAlertDialog(context, 'Error'.tr(), result.tr(), true);
+  //     } else {
+  //       showAlertDialog(
+  //           context, 'Error', "notLoginFacebook".tr(), true);
+  //     }*/
+  //   } catch (e, s) {
+  //     await hideProgress();
+  //     print('_LoginScreen.loginWithFacebook $e $s');
+  //     showAlertDialog(context, 'error'.tr(), "notLoginFacebook".tr(), true);
+  //   }
+  // }
 
   loginWithApple() async {
     try {

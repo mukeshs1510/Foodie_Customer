@@ -279,7 +279,7 @@ class _SignUpState extends State<SignUpScreen> {
               inputBorder: const OutlineInputBorder(
                 borderSide: BorderSide.none,
               ),
-              initialValue: PhoneNumber(isoCode: 'US'),
+              initialValue: PhoneNumber(isoCode: 'IN'),
               selectorConfig: const SelectorConfig(selectorType: PhoneInputSelectorType.DIALOG),
             ),
           ),
