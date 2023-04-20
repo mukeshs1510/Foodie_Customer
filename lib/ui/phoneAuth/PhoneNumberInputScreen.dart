@@ -10,6 +10,8 @@ import 'package:foodie_customer/model/User.dart';
 import 'package:foodie_customer/services/FirebaseHelper.dart';
 import 'package:foodie_customer/services/helper.dart';
 import 'package:foodie_customer/ui/container/ContainerScreen.dart';
+import 'package:foodie_customer/ui/login/LoginScreen.dart';
+import 'package:foodie_customer/ui/signUp/SignUpScreen.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -214,7 +216,7 @@ class _PhoneNumberInputScreenState extends State<PhoneNumberInputScreen> {
                         inputBorder: const OutlineInputBorder(
                           borderSide: BorderSide.none,
                         ),
-                        initialValue: PhoneNumber(isoCode: 'US'),
+                        initialValue: PhoneNumber(isoCode: 'IN'),
                         selectorConfig: const SelectorConfig(selectorType: PhoneInputSelectorType.DIALOG),
                       ),
                     ),
@@ -300,7 +302,9 @@ class _PhoneNumberInputScreenState extends State<PhoneNumberInputScreen> {
                 /// switch between sign up with phone number and email sign up states
                 InkWell(
                   onTap: () {
-                    Navigator.pop(context);
+                    // Navigator.pop(context);
+                    widget.login ? push(context, LoginScreen()) : push(context, SignUpScreen());
+                    // push(context, SignUpScreen());
                   },
                   child: Text(
                     widget.login ? "loginWithEmail".tr() : "signUpWithEmail".tr(),
